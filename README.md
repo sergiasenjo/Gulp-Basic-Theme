@@ -14,13 +14,13 @@ $ sudo npm install -g gulp
 $ git clone https://github.com/sergiasenjo/Gulp-Basic-Theme.git project-name
 $ cd project-name
 $ npm install
-$ grunt -v
+$ gulp watch
 ```
 
 ### Plugins
 
   - Less
-  - CSSMin
+  - CleanCSS
   - Watch
 
 
