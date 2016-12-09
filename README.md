@@ -6,6 +6,19 @@ It requires [Node.js](https://nodejs.org/) to run.
 
 You need Gulp installed globally:
 
+Windows:
+```sh
+npm install -g gulp
+```
+
+```sh
+git clone https://github.com/sergiasenjo/Gulp-Basic-Theme.git project-name
+cd project-name
+npm install
+gulp watch
+```
+
+Linux:
 ```sh
 $ sudo npm install -g gulp
 ```
