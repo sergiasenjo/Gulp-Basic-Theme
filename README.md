@@ -35,6 +35,7 @@ $ gulp watch
   - Less
   - CleanCSS
   - Watch
+  - BrowserSync
 
 
 
