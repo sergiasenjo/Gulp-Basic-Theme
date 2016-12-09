@@ -32,7 +32,7 @@ gulp.task('minify-css', ['less'], function() {
 gulp.task('browserSync', ['less', 'minify-css'], function() {
   browserSync.init({
     server: {
-      baseDir: 'app'
+      baseDir: 'app/dist'
     },
   })
 })
