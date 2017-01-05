@@ -12,6 +12,7 @@
     "browser-sync": "^2.18.2",
     "gulp": "^3.9.1",
     "gulp-clean-css": "^2.2.0",
-    "gulp-less": "^3.3.0"
+    "gulp-less": "^3.3.0",
+    "gulp-sass": "^3.0.0"
   }
 }

@@ -20,6 +20,7 @@ $ gulp watch
 ### Plugins
 
   - Less
+  - Sass
   - CleanCSS
   - Watch
   - BrowserSync

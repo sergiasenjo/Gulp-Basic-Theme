@@ -1,12 +1,14 @@
 var gulp = require('gulp');
 var less = require('gulp-less');
+var sass = require('gulp-sass');
 var path = require('path');
 var cleanCSS = require('gulp-clean-css');
 var browserSync = require('browser-sync').create();
 
-gulp.task('watch', ['less', 'minify-css', 'browserSync'], function(){
+gulp.task('watch', ['less', 'sass', 'minify-css', 'browserSync'], function(){
   gulp.watch('app/less/*.less', ['less', 'minify-css', browserSync.reload]);
-  gulp.watch('app/*.html', browserSync.reload);
+  gulp.watch('app/sass/*.scss', ['sass', 'minify-css', browserSync.reload]);
+  gulp.watch('app/dist/*.html', browserSync.reload);
 })
 
 gulp.task('less', function () {
@@ -20,7 +22,13 @@ gulp.task('less', function () {
         }));
 });
 
-gulp.task('minify-css', ['less'], function() {
+gulp.task('sass', ['less'], function () {
+  return gulp.src('app/sass/*.scss')
+    .pipe(sass().on('error', sass.logError))
+    .pipe(gulp.dest('app/css'));
+});
+
+gulp.task('minify-css', ['less', 'sass'], function() {
     return gulp.src('app/css/*.css')
         .pipe(cleanCSS({compatibility: 'ie8'}))
         .pipe(gulp.dest('app/dist/css'))
@@ -29,7 +37,7 @@ gulp.task('minify-css', ['less'], function() {
         }));
 });
 
-gulp.task('browserSync', ['less', 'minify-css'], function() {
+gulp.task('browserSync', ['less', 'sass', 'minify-css'], function() {
   browserSync.init({
     server: {
       baseDir: 'app/dist'
